@@ -1,2 +1,3 @@
 project.db
 settings.py
+*.pyc
