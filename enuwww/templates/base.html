@@ -19,7 +19,7 @@
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="{% static 'css/clean-blog.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/clean-blog.css' %}" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
@@ -61,7 +61,7 @@
                     Menu <i class="fa fa-bars"></i>
                 </button>
                 
-                <a class="navbar-brand" href="/">{{ request.site.name }}</a>
+                <a class="navbar-brand" href="/"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -107,8 +107,9 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <ul class="list-inline text-center">
+			{% load facebook twitter %}
                         <li>
-                            <a href="#">
+                            <a href="{% get_twitter_url request.get_host %}">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -116,13 +117,14 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{% get_facebook_url request.get_host %}">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
                                 </span>
                             </a>
                         </li>
+<!--
                         <li>
                             <a href="#">
                                 <span class="fa-stack fa-lg">
@@ -131,8 +133,9 @@
                                 </span>
                             </a>
                         </li>
+-->
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; {{ request.site.name }} {% now "Y" %}</p>
+                    <p class="copyright text-muted">Copyright &copy; {{ request.get_host }} {% now "Y" %}</p>
                 </div>
             </div>
         </div>
